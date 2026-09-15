@@ -1,0 +1,15 @@
+/* Content is visible by default; JavaScript only prepares offscreen entrances. */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.reveal-pending:focus-within {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
+}
