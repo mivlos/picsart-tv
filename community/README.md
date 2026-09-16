@@ -1,22 +1,27 @@
 # Picsart TV — Community storytelling
 
-A separate landing page focused on interactive entertainment that everyone can shape. Exploring existing stories and beginning a new one receive equal emphasis. The original multi-product page remains at the repository root.
-
 Live: https://mivlos.github.io/picsart-tv/community/
 
-## Structure
+A separate landing page focused on community stories. Watching existing stories and starting a new one receive equal emphasis. The original multi-product page remains at the repository root.
 
-- `index.html`: editorial sections, native dialogs, progressive product detail.
-- `stories.js`: the sample story catalog and two-level authored branching paths. Replace this data source when connecting a live catalog.
-- `app.js`: catalog rendering, branching previews, local idea preview and text download.
-- `brand.css`: Picsart fonts and existing Cascade tokens.
-- `site.css`: responsive layout and restrained, once-only section entrances; respects reduced motion.
-- `assets/`: artwork and supplied story-map screenshot.
+## Current content
 
-Static files only. No packages or build step needed for hosting. Relative paths work at a GitHub Pages project subpath. The sections and data are separate so the offering can expand later without presenting future products at launch.
+Real stories: Dracula, The endless void., The City Below. Story cards and main calls to action link into https://com-picsart-tv-stage.picsart.site/. The Dracula selector compares two actual community continuations. A collapsible walkthrough shows fresh captures of the story map, viewing interface and studio collection.
 
-The page is a concept preview: no live video, generation, uploads, publishing or community backend is connected. The draft exists in the current page session only and can be saved as a text file. No analytics or outbound form requests.
+## Editing
 
-## Portable artifact
+- `index.html`: page content, external app links and native dialogs.
+- `stories.js`: real story metadata, verified destinations, branch descriptions and screenshot metadata.
+- `app.js`: rendering, branch/screenshot selection, optional local idea sketch and text download.
+- `brand.css`, `site.css`: responsive layout, Cascade tokens and restrained entrances with reduced-motion support.
+- `assets/`: artwork and product captures; provenance in `ASSETS.md`.
 
-Run `python3 build-share.py` from the source copy to build `share/Picsart-TV-Community.html` and a ZIP. This uses Python's standard library and fetches only the specified Picsart fonts to embed. Fonts and used images are embedded once; the result works offline.
+Static hosting requires no dependencies or build. Relative media paths support the GitHub Pages subdirectory. Watching, generating and publishing take place in the separate live app. The local idea sketch sends nothing to a server.
+
+## Video handoff
+
+The existing card images and Dracula branch still are the poster surfaces for forthcoming exports. Suitable clips: Dracula, The endless void., The City Below. The branching comparison is The Castle Door followed by Eyes in the Fog and Whispers in Leather. Prefer MP4, with the existing landscape format and a short representative excerpt. No placeholder players or simulated video controls are displayed while exports are pending.
+
+## Portable copy
+
+Run `python3 build-share.py` from the source copy. It creates `share/Picsart-TV-Community.html` and a ZIP with all used images, fonts, styles and scripts embedded. The landing page can be viewed offline; links to the live app require internet. Python standard library only; the build fetches the existing Picsart font URLs.
