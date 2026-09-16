@@ -1,0 +1,38 @@
+
+  /* ===== Fonts ===== */
+  @font-face { font-family: 'Picsart-Fonts'; font-style: normal; font-weight: 400; src: url('https://pastatic.picsart.com/cms-pastatic/d018cb40-40a8-4efa-a202-947285ae8329.woff2') format('woff2'); font-display: swap; }
+  @font-face { font-family: 'Picsart-Fonts'; font-style: normal; font-weight: 500; src: url('https://pastatic.picsart.com/cms-pastatic/3de40576-a960-483a-a3ab-a1743e3c4ba6.woff2') format('woff2'); font-display: swap; }
+  @font-face { font-family: 'Picsart-Fonts'; font-style: normal; font-weight: 600; src: url('https://pastatic.picsart.com/cms-pastatic/eae6e1ea-9319-406c-a3de-00431f8f03f4.woff2') format('woff2'); font-display: swap; }
+  @font-face { font-family: 'Picsart-Fonts'; font-style: normal; font-weight: 700; src: url('https://pastatic.picsart.com/cms-pastatic/0ea441d6-d0d4-4236-b649-67a987887865.woff2') format('woff2'); font-display: swap; }
+  @font-face { font-family: 'Acorn-Regular'; font-style: normal; font-weight: 400; src: url('https://pastatic.picsart.com/cms-pastatic/6f550a01-9804-4117-a4d9-9e25da6c31d5.otf') format('opentype'); font-display: swap; }
+
+  /* ===== Tokens (landing-page snapshot) ===== */
+  :root {
+    --s4:4px; --s8:8px; --s12:12px; --s16:16px; --s20:20px; --s24:24px; --s32:32px; --s40:40px; --s48:48px; --s56:56px; --s64:64px; --s72:72px;
+    --r8:8px; --r12:12px; --r16:16px; --r20:20px; --r24:24px;
+    --fs12:12px; --fs14:14px; --fs16:16px; --fs20:20px; --fs24:24px; --fs30:30px; --fs36:36px; --fs42:42px; --fs60:60px;
+    --bg-base:#121212; --bg-tint:#1C1C1C; --bg-tint2:#242424; --bg-tint3:#2F2F2F; --bg-border:#303030;
+    --tx-base:#FFFFFF; --tx-tint1:#B3B3B3; --tx-tint2:#808080; --tx-tint3:#5A5A5A;
+    --pri:#FF47FF; --pri-action:#FF66FF; --pri-soft:#FF47FF1A; --pri-softer:#FF47FF33;
+    --acc:#00FFED;
+    --grad: linear-gradient(135deg, #00FFED, #19D7E7, #7F4AD9, #AF1FC6, #DF02C0);
+    --container: 1120px;
+  }
+
+  /* ===== Base reset + body ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Picsart-Fonts', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-base);
+    color: var(--tx-base);
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  code, pre, .mono { font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace; }
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--s24); }
+  .container-narrow { max-width: 860px; margin: 0 auto; padding: 0 var(--s24); }
+
+  
