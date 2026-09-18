@@ -9,8 +9,6 @@
   };
   function text(tag, value, className) { const node = document.createElement(tag); node.textContent = value; if(className) node.className = className; return node; }
   function choice(label, action) { const b = text('button', label, 'choice'); b.type = 'button'; b.append(arrow()); b.addEventListener('click', action); return b; }
-  const creatorDialog = $('creator-dialog');
-  let draft = '', savedIdea = '';
   for(const story of tvStories) {
     const card = document.createElement('a'); card.className = 'story-card'; card.href = story.url; card.setAttribute('aria-label', 'Watch ' + story.title + ' in Picsart TV');
     const img = document.createElement('img'); img.src = story.image; img.alt = story.alt; img.loading = 'lazy';
@@ -23,26 +21,17 @@
     $('demo-result-label').textContent = branch.title;
     $('demo-result').textContent = branch.text;
     $('demo-credit').textContent = branch.credit;
+    $('demo-image').src = branch.image;
+    $('demo-image').alt = branch.alt;
+    $('demo-image-title').textContent = branch.title;
+    $('demo-prompt').textContent = branch.prompt;
+    $('demo-link').href = branch.url;
     [...$('demo-choices').children].forEach((b,i) => b.setAttribute('aria-pressed',String(index===i)));
     if(!reduced.matches) $('demo-result').animate([{opacity:.35},{opacity:1}],{duration:250});
   }
   tvBranches.forEach((branch,index) => $('demo-choices').append(choice(branch.title,()=>updateDemo(index))));
   updateDemo(0);
-  function openCreator(idea) {
-    if(idea !== undefined) draft = idea;
-    $('story-idea').value = draft; $('idea-count').textContent = `${draft.length} / 600`;
-    $('idea-preview').hidden = true; $('story-idea').setCustomValidity(''); creatorDialog.showModal(); creatorDialog.scrollTop = 0;
-  }
-  document.querySelectorAll('[data-idea]').forEach(b => b.addEventListener('click', () => openCreator(b.dataset.idea)));
-  $('story-idea').addEventListener('input', e => { draft = e.target.value; e.target.setCustomValidity(''); $('idea-count').textContent = `${draft.length} / 600`; $('idea-preview').hidden = true; });
-  $('idea-form').addEventListener('submit', e => {
-    e.preventDefault(); savedIdea = $('story-idea').value.trim();
-    if(!savedIdea) { $('story-idea').setCustomValidity('Add a few words to begin your story.'); $('story-idea').reportValidity(); return; }
-    $('idea-output').textContent = savedIdea; $('idea-preview').hidden = false;
-    const content = 'PICSART TV — MY STORY BEGINNING\n\n' + savedIdea + '\n\nWhere would you take this?\n\nSaved from the Picsart TV concept preview. Nothing has been published.\n';
-    $('download-idea').href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(content);
-    $('download-idea').focus({preventScroll:true}); $('idea-preview').scrollIntoView({block:'nearest',behavior:reduced.matches?'instant':'smooth'});
-  });
+  document.querySelectorAll('[data-branch]').forEach(link => link.addEventListener('click', () => updateDemo(Number(link.dataset.branch))));
   function selectScreen(index) {
     const screen = tvScreens[index];
     $('screen-heading').textContent = screen.title;
